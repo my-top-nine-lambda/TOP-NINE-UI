@@ -42,7 +42,7 @@ class Signup extends Component {
         <Form className="form" onSubmit={this.register}>
           <Col>
             <FormGroup>
-              <Label>Userame</Label>
+              <Label>Username</Label>
               <Input
                 type="username"
                 name="username"
