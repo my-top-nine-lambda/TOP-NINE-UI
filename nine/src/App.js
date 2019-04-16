@@ -4,6 +4,9 @@ import axios from 'axios';
 
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Books from './pages/Books';
+import Movies from './pages/Movies';
+import Sports from './pages/Sports';
 
 class App extends Component {
 

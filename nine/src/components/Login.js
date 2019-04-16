@@ -28,7 +28,7 @@ class Login extends Component {
     render() {
         return (
             <Container className='login'>
-                <h2>Login</h2>
+                <h2>Top Nine</h2>
                 <Form className='form' onSubmit={this.login}>
                  <Col>
                  <FormGroup>
@@ -54,7 +54,7 @@ class Login extends Component {
                          />
                     </FormGroup>
                  </Col>
-                  <Button onClick={this.login}>Submit</Button>
+                  <Button onClick={this.login}>Login</Button>
                 </Form>
             </Container>
         )

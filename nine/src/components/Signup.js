@@ -38,7 +38,7 @@ class Signup extends Component {
   render() {
     return (
       <Container className="login">
-        <h2>Sign Up</h2>
+        <h2>Register</h2>
         <Form className="form" onSubmit={this.register}>
           <Col>
             <FormGroup>
