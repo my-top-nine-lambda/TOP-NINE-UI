@@ -3,7 +3,7 @@ import React from 'react';
 const Books = props => {
     return (
         <div className='cat'>
-            <h2>Top Nine</h2>
+            <h2>Books Top Nine</h2>
             <p>{props.books}</p>
             <p>{props.books}</p>
             <p>{props.books}</p>

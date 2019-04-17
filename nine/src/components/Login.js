@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-class Login extends Component {
+class Login extends React.Component {
     state = {
         user: {
         username: '',
@@ -55,6 +55,7 @@ class Login extends Component {
                     </FormGroup>
                  </Col>
                   <Button onClick={this.login}>Login</Button>
+                  <Button><a href='/register'>Register</a></Button>
                 </Form>
             </Container>
         )

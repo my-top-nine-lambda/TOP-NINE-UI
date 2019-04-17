@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Container,
   Col,
@@ -9,13 +9,11 @@ import {
   Button
 } from "reactstrap";
 
-class Signup extends Component {
+class Signup extends React.Component {
   state = {
     newUser: {
       username: "",
       password: "",
-      name: "",
-      email: "",
     }
   };
 
@@ -60,30 +58,6 @@ class Signup extends Component {
                 name="password"
                 placeholder="password"
                 value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label>Fullname</Label>
-              <Input
-                type="name"
-                name="name"
-                placeholder="fullname"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label>Email</Label>
-              <Input
-                type="email"
-                name="email"
-                placeholder="email"
-                value={this.state.email}
                 onChange={this.handleChange}
               />
             </FormGroup>
