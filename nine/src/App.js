@@ -17,18 +17,9 @@ class App extends React.Component {
     };
   }
 
-  login = user => {
-    axios
-      .post('https://mtnbe.herokuapp.com/api/auth/login', user)
-      .then(response => {
-        localStorage.setItem("token", response.data);
-      })
-      .catch(error => console.log(error));
-  };
-
   register = creds => {
     axios
-      .post("https://mtnbe.herokuapp.com/api/auth/register", creds)
+      .post('https://mtnbe.herokuapp.com/api/auth/register', creds)
       .then(response => {
         console.log(response)
       })

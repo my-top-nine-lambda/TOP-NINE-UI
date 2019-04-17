@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import Books from './pages/Books';
 import Movies from './pages/Movies';
-import Sports from './pages/Sports';
 
 class Home extends React.Component {
     constructor(props) {
@@ -11,18 +9,6 @@ class Home extends React.Component {
         this.state = { 
             items: ['Red', 'Incredibles', 'IT', 'Incredibles', 'Superman', 'Dark Knight', 'Training Day', '007', 'X-Men'],
          }
-    }
-
-    addMovie = e => {
-        e.preventDefault();
-        const newItem = {
-            items: this.state.items
-        }
-
-        this.props.postItem(newItem);
-        this.setState({
-            items: ['Red', 'Incredibles', 'IT', 'Incredibles', 'Superman', 'Dark Knight', 'Training Day', '007', 'X-Men']
-        })
     }
 
     componentDidMount() {
@@ -37,6 +23,22 @@ class Home extends React.Component {
                 console.log(error);
             });
     }   
+    
+    addMovie = e => {
+        e.preventDefault();
+        const newItem = {
+            items: this.state.items
+        }
+
+        this.props.postItem(newItem);
+        this.setState({
+            items: [...this.state.items, newItem]
+        })
+    }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+      };
 
    updateItem = id => {
         axios
@@ -70,6 +72,7 @@ class Home extends React.Component {
                     <input 
                         type='text'
                         placeholder='Item'
+                        onChange={this.handleInputChange}
                         />
                 </div>
                 <button>Add</button>
