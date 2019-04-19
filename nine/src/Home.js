@@ -7,14 +7,18 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: ['Red', 'Incredibles', 'IT', 'Incredibles', 'Superman', 'Dark Knight', 'Training Day', '007', 'X-Men'],
+            items: [],
          }
     }
 
     componentDidMount() {
         axios
-            .get('https://mtnbe.herokuapp.com/api/categories/moviesDB')
+            .get('https://mtnbe.herokuapp.com/api/categories/moviesDB', {
+                "Content-Type": "application/json",
+                headers: { authorization: localStorage.getItem("token") }
+            })
             .then(response => {
+                console.log(response)
                 this.setState({
                     items: response.data
                   })
@@ -23,6 +27,23 @@ class Home extends React.Component {
                 console.log(error);
             });
     }  
+
+    deleteItem = (e, id) => {
+        e.preventDefault();
+        axios
+          .delete(`https://mtnbe.herokuapp.com/api/categories/moviesDB/${id}`,
+          {
+            "Content-Type": "application/json",
+            headers: { authorization: localStorage.getItem("token")}}
+          )
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    };
+
   
     render() { 
         const {items} = this.state;
@@ -30,7 +51,12 @@ class Home extends React.Component {
             <div>
                 <h1>Top Nine</h1>
                 {items.map(item => {
-                    return <p key={item}>{item}</p>
+                    return (
+                    <div>
+                        <p key={item.id}>{item.name}</p>
+                        <button onClick={(e) =>this.deleteItem(e, item.id)}>Delete</button>
+                    </div>
+                    )
                 })}
             </div>
          );

@@ -40,6 +40,9 @@ class App extends React.Component {
              <NavItem>
                <NavLink href='/home'>Home</NavLink>
              </NavItem>
+             <NavItem>
+               <NavLink href='/movie'>Movies</NavLink>
+             </NavItem>
            </Nav>
         </Navbar>
 

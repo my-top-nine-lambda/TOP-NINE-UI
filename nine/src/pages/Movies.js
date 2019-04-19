@@ -8,47 +8,32 @@ class Movies extends React.Component {
         super(props)
         this.state = {
             name: '',
-            type: '',
-            description: '',
-            id: '',
-            movies: []
+            movieAdded: ''
         }
     }
 
     handleName = e => {
         this.setState({
-            name: e.target.value
+            [e.target.name]: e.target.value
         })
-    }
-    handleType = e => {
-        this.setState({
-            type: e.target.value
-        })
-    }
-    handleDescription = e => {
-        this.setState({
-            description: e.target.value
-        })
-    }
-    handleSubmit = e => {
-        e.preventDefault();
-        axios
-            .post('https://mtnbe.herokuapp.com/api/categories/moviesDB', {name: this.state.name, type: this.state.type, description: this.state.description, id: this.state.id})
-            .then(response => this.setState({
-                movies: [this.state.name, this.state.type, this.state.description, this.state.id]
-            }))
     }
 
-    deleteItem = id => {
+    handleSubmit = e => {
+        e.preventDefault();
+        
         axios
-          .delete(`https://mtnbe.herokuapp.com/api/categories/moviesDB/${id}`)
-          .then(response => {
-            console.log(response)
-          })
-          .catch(error => {
-            console.log(error);
-          });
-    };
+            .post('https://mtnbe.herokuapp.com/api/categories/moviesDB', {name: this.state.name},
+            {"Content-Type": "application/json",
+            headers: { authorization: localStorage.getItem("token")
+            }})
+            .then(response => {this.setState({
+                movieAdded: response.data.message, name: ''
+                
+            }) }
+            )
+    }
+
+
 
     updateItem = id => {
         axios
@@ -66,21 +51,12 @@ class Movies extends React.Component {
             <div className='cat'>
                 <Form onSubmit={this.handleSubmit}>
                     <Col>
+                    <p>{this.state.movieAdded && <div>Movie Added</div>}</p>
                     <FormGroup>
                         <Input 
                             type='text'
                             placeholder='Name'
                             onChange={this.handleName}
-                        />
-                        <Input 
-                            type='text'
-                            placeholder='Type'
-                            onChange={this.handleType}
-                        />
-                        <Input 
-                            type='text'
-                            placeholder='Description'
-                            onChange={this.handleDescription}
                         />
                     </FormGroup>
                     <Button>Add</Button>
@@ -88,9 +64,6 @@ class Movies extends React.Component {
                 </Form>
 
                 <h2>My Top Nine</h2>
-                {this.state.movies.map(movie => (
-                <ProfileCard key={movie} deleteItem={this.deleteItem}/>
-                ))}
             </div>
         )
     }

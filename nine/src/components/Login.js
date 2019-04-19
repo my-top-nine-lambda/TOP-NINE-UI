@@ -11,12 +11,14 @@ class Login extends React.Component {
     }
 
    
-  login = user => {
+  login = e => {
+      e.preventDefault();
     axios
-      .post('https://mtnbe.herokuapp.com/api/auth/login', user)
+      .post('https://mtnbe.herokuapp.com/api/auth/login', this.state.user)
       .then(response => {
-        console.log(user)
-        localStorage.setItem("token", response.data)
+        console.log(response.data)
+        localStorage.setItem("token", response.data.token)
+        this.props.history.push('/home')
       })
       .catch(error => console.log(error));
   };
@@ -31,11 +33,12 @@ class Login extends React.Component {
         })
     }
     
-    login = e => {
-        e.preventDefault();
-        this.props.login(this.state.user);
-        this.props.history.push('/home')
-    }
+    // enter = e => {
+    //     e.preventDefault();
+    //     this.login(this.state.user);
+    //     this.props.history.push('/home')
+    // }
+
     render() {
         return (
             <Container className='login'>
@@ -65,7 +68,7 @@ class Login extends React.Component {
                          />
                     </FormGroup>
                  </Col>
-                  <Button onClick={this.login}>Login</Button>
+                  <Button type='submit'>Login</Button>
                   <Button><a href='/register'>Register</a></Button>
                 </Form>
             </Container>
