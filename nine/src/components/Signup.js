@@ -18,7 +18,6 @@ class Signup extends React.Component {
   };
 
   handleChange = e => {
-    console.log(e);
     this.setState({
       newUser: {
         ...this.state.newUser,
@@ -28,7 +27,6 @@ class Signup extends React.Component {
   };
 
   register = e => {
-    console.log(this.state);
     e.preventDefault();
     this.props.register(this.state.newUser);
     this.props.history.push('/')

@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
-import Movies from './pages/Movies';
+import { Button } from 'reactstrap';
 
 class Home extends React.Component {
     constructor(props) {
@@ -27,23 +26,6 @@ class Home extends React.Component {
                 console.log(error);
             });
     }  
-
-    deleteItem = (e, id) => {
-        e.preventDefault();
-        axios
-          .delete(`https://mtnbe.herokuapp.com/api/categories/moviesDB/${id}`,
-          {
-            "Content-Type": "application/json",
-            headers: { authorization: localStorage.getItem("token")}}
-          )
-          .then(response => {
-            console.log(response)
-          })
-          .catch(error => {
-            console.log(error);
-          });
-    };
-
   
     render() { 
         const {items} = this.state;
@@ -53,8 +35,8 @@ class Home extends React.Component {
                 {items.map(item => {
                     return (
                     <div>
-                        <p key={item.id}>{item.name}</p>
-                        <button onClick={(e) =>this.deleteItem(e, item.id)}>Delete</button>
+                        <h3 key={item.id}>{item.name}</h3>
+                        <Button href={`/edit/${item.id}`}>Edit</Button>
                     </div>
                     )
                 })}

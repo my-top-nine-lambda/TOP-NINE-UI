@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './Home';
 import Movies from './pages/Movies';
+import Edit from './components/Edit';
 
 
 class App extends React.Component {
@@ -41,7 +42,7 @@ class App extends React.Component {
                <NavLink href='/home'>Home</NavLink>
              </NavItem>
              <NavItem>
-               <NavLink href='/movie'>Movies</NavLink>
+               <NavLink href='/movie'>Add</NavLink>
              </NavItem>
            </Nav>
         </Navbar>
@@ -50,6 +51,7 @@ class App extends React.Component {
         <Route path='/register' render={props => <Signup {...props} register={this.register}/>} />
         <Route path='/home' render={props => <Home {...props} postItem={this.postItem}/>} />
         <Route path='/movie' component={Movies} />
+        <Route path='/edit/:id' component={Edit} />
       </div>
     );
   }

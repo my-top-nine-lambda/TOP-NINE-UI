@@ -32,12 +32,6 @@ class Login extends React.Component {
             }
         })
     }
-    
-    // enter = e => {
-    //     e.preventDefault();
-    //     this.login(this.state.user);
-    //     this.props.history.push('/home')
-    // }
 
     render() {
         return (
@@ -48,7 +42,7 @@ class Login extends React.Component {
                  <FormGroup>
                      <Label>Username</Label>
                      <Input 
-                        type='username'
+                        type='text'
                         name='username'
                         placeholder='username'
                         value={this.state.username}
