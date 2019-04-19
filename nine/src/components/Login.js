@@ -34,7 +34,6 @@ class Login extends React.Component {
     login = e => {
         e.preventDefault();
         this.props.login(this.state.user);
-
         this.props.history.push('/home')
     }
     render() {

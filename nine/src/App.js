@@ -7,6 +7,7 @@ import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './Home';
+import Movies from './pages/Movies';
 
 
 class App extends React.Component {
@@ -26,17 +27,6 @@ class App extends React.Component {
       .catch(error => console.log(error));
   };
 
-  postItem = (item) => {
-    axios
-    .post('https://mtnbe.herokuapp.com/api/categories/moviesDB', item)
-    .then( response => {
-      console.log(response)
-      this.setState({
-        item: response.data
-      });
-    })
-    .catch(error => console.log(error))
-  };
 
   render() {
     return (
@@ -53,9 +43,10 @@ class App extends React.Component {
            </Nav>
         </Navbar>
 
-        <Route exact path='/' render={props => <Login {...props} login={this.login}/>} />
+        <Route exact path='/' render={props => <Login {...props} login={this.login} />} />
         <Route path='/register' render={props => <Signup {...props} register={this.register}/>} />
         <Route path='/home' render={props => <Home {...props} postItem={this.postItem}/>} />
+        <Route path='/movie' component={Movies} />
       </div>
     );
   }
