@@ -26,6 +26,14 @@ class Home extends React.Component {
                 console.log(error);
             });
     }  
+
+    delete = (id) => {
+        let items = this.state.items;
+        items = items.filter(item => item.id !== id)
+        this.setState({
+            items
+        })
+    }
   
     render() { 
         const {items} = this.state;
@@ -37,6 +45,7 @@ class Home extends React.Component {
                     <div>
                         <h3 key={item.id}>{item.name}</h3>
                         <Button href={`/edit/${item.id}`}>Edit</Button>
+                        <Button onClick={() => this.delete(item.id)}>Delete</Button>
                     </div>
                     )
                 })}

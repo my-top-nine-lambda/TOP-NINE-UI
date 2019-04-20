@@ -21,7 +21,8 @@ class Movies extends React.Component {
         e.preventDefault();
         axios
             .post('https://mtnbe.herokuapp.com/api/categories/moviesDB', {name: this.state.name},
-            {"Content-Type": "application/json",
+            {
+            "Content-Type": "application/json",
             headers: { authorization: localStorage.getItem("token")
             }
             })
