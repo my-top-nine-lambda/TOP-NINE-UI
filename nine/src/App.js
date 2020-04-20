@@ -1,15 +1,13 @@
-import React from 'react';
-import './App.css';
-import axios from 'axios';
-import { Route } from 'react-router-dom';
-import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
+import React from "react";
+import "./App.css";
+import axios from "axios";
+import { Route } from "react-router-dom";
 
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Home from './Home';
-import Movies from './pages/Movies';
-import Edit from './components/Edit';
-
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Home from "./components/Home";
+import Movies from "./components/Movies";
+import Edit from "./components/Edit";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,39 +17,33 @@ class App extends React.Component {
     };
   }
 
-  register = creds => {
+  register = (creds) => {
     axios
-      .post('https://mtnbe.herokuapp.com/api/auth/register', creds)
-      .then(response => {
-        console.log(response)
+      .post("https://mtnbe.herokuapp.com/api/auth/register", creds)
+      .then((response) => {
+        console.log(response);
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
-
 
   render() {
     return (
       <div className="App">
-        <Navbar>
-          <NavbarBrand>Top Nine</NavbarBrand>
-           <Nav>
-             <NavItem>
-               <NavLink href='/'>Login</NavLink>
-             </NavItem>
-             <NavItem>
-               <NavLink href='/home'>Home</NavLink>
-             </NavItem>
-             <NavItem>
-               <NavLink href='/movie'>Add</NavLink>
-             </NavItem>
-           </Nav>
-        </Navbar>
-
-        <Route exact path='/' render={props => <Login {...props} login={this.login} />} />
-        <Route path='/register' render={props => <Signup {...props} register={this.register}/>} />
-        <Route path='/home' render={props => <Home {...props} postItem={this.postItem}/>} />
-        <Route path='/movie' component={Movies} />
-        <Route path='/edit/:id' component={Edit} />
+        <Route
+          exact
+          path="/"
+          render={(props) => <Login {...props} login={this.login} />}
+        />
+        <Route
+          path="/register"
+          render={(props) => <Signup {...props} register={this.register} />}
+        />
+        <Route
+          path="/home"
+          render={(props) => <Home {...props} postItem={this.postItem} />}
+        />
+        <Route path="/movie" component={Movies} />
+        <Route path="/edit/:id" component={Edit} />
       </div>
     );
   }

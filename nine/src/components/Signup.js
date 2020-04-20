@@ -6,7 +6,7 @@ import {
   FormGroup,
   Label,
   Input,
-  Button
+  Navbar,
 } from "reactstrap";
 
 class Signup extends React.Component {
@@ -14,27 +14,30 @@ class Signup extends React.Component {
     newUser: {
       username: "",
       password: "",
-    }
+    },
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       newUser: {
         ...this.state.newUser,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      },
     });
   };
 
-  register = e => {
+  register = (e) => {
     e.preventDefault();
     this.props.register(this.state.newUser);
-    this.props.history.push('/')
+    this.props.history.push("/");
   };
 
   render() {
     return (
       <Container className="login">
+        <Navbar className="bar">
+          <h2>Top Nine</h2>
+        </Navbar>
         <h2>Register</h2>
         <Form className="form" onSubmit={this.register}>
           <Col>
@@ -61,7 +64,7 @@ class Signup extends React.Component {
               />
             </FormGroup>
           </Col>
-          <Button>Submit</Button>
+          <button className="sign">Submit</button>
         </Form>
       </Container>
     );
