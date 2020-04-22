@@ -11,6 +11,31 @@ h1 {
   margin: 30px;
 }
 
+/*
+Register
+*/
+
+.register {
+  background-image: url(images/register.jpg);
+  height: 700px;
+  padding: 150px;
+}
+
+/*
+Login Page
+*/
+
+.form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.loginCont {
+  background-image: url(images/moviePic.jpg);
+  height: 700px;
+  padding: 150px;
+}
+
 h2 {
   color: blue;
   font-family: Arial, Helvetica, sans-serif;
@@ -32,6 +57,13 @@ button a {
   color: white;
 }
 
+.imput {
+  width: 100px;
+}
+
+/*
+Home Page
+*/
 .delete {
   color: red;
   background-color: black;
@@ -45,10 +77,6 @@ button a {
   margin-right: 10px;
 }
 
-.imput {
-  width: 100px;
-}
-
 .form {
   width: 300px;
   margin: 0 auto;
@@ -56,7 +84,7 @@ button a {
 
 .loginCont {
   background-image: url(images/moviePic.jpg);
-  height: 600px;
+  height: 700px;
   padding: 150px;
 }
 
