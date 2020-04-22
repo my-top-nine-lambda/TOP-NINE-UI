@@ -6,9 +6,12 @@
   text-align: center;
 }
 
-h1 {
-  color: red;
+.h1 {
+  color: dodgerblue;
   margin: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: 700;
 }
 
 /*
@@ -19,6 +22,14 @@ Register
   background-image: url(images/register.jpg);
   height: 700px;
   padding: 150px;
+}
+
+.signB {
+  background-color: dodgerblue;
+  border-radius: 8px;
+  color: white;
+  height: 35px;
+  width: 80px;
 }
 
 /*
@@ -64,6 +75,15 @@ button a {
 /*
 Home Page
 */
+.cat {
+  background-image: url(images/homePic.webp);
+  height: 700px;
+}
+.movies {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .delete {
   color: red;
   background-color: black;
@@ -77,34 +97,12 @@ Home Page
   margin-right: 10px;
 }
 
-.form {
-  width: 300px;
-  margin: 0 auto;
-}
-
-.loginCont {
-  background-image: url(images/moviePic.jpg);
-  height: 700px;
-  padding: 150px;
-}
-
 .movie-card {
+  background-color: white;
   border: 3px solid black;
   border-radius: 8px;
-  box-sizing: border-box;
+  padding: 20px;
   margin: 5px auto;
-  height: 200px;
-  width: 200px;
-}
-
-.Navlink {
-  color: black;
-}
-
-.sign {
-  background-color: dodgerblue;
-  border-radius: 8px;
-  color: white;
-  height: 35px;
-  width: 80px;
+  height: 130px;
+  width: 150px;
 }

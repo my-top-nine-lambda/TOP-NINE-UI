@@ -55,7 +55,7 @@ class Signup extends React.Component {
                 />
               </FormGroup>
             </Col>
-            <button className="sign">Submit</button>
+            <button className="signB">Submit</button>
           </Form>
         </div>
       </div>

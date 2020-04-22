@@ -38,7 +38,7 @@ class Login extends React.Component {
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <Nav>
-            <button className="sign">
+            <button className="signB">
               <a href="/register">Register</a>
             </button>
           </Nav>
@@ -68,7 +68,7 @@ class Login extends React.Component {
                 />
               </FormGroup>
             </Col>
-            <button className="sign" type="submit">
+            <button className="signB" type="submit">
               Login
             </button>
           </Form>
