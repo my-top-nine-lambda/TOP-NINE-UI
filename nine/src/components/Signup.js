@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Form, FormGroup, Input, Navbar } from "reactstrap";
+import { Col, Form, FormGroup, Input, Nav, Navbar } from "reactstrap";
 
 class Signup extends React.Component {
   state = {
@@ -29,6 +29,11 @@ class Signup extends React.Component {
       <div className="login">
         <Navbar className="bar">
           <h2>Top Nine</h2>
+          <Nav>
+            <button className="signB">
+              <a href="/">Login</a>
+            </button>
+          </Nav>
         </Navbar>
         <div className="register">
           <h2>Register</h2>
