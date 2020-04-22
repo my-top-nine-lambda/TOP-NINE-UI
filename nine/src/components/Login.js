@@ -1,15 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {
-  Container,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Navbar,
-  Nav,
-} from "reactstrap";
+import { Col, Form, FormGroup, Input, Navbar, Nav } from "reactstrap";
 
 class Login extends React.Component {
   state = {
@@ -43,7 +34,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Container class="login">
+      <div className="login">
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <Nav>
@@ -52,37 +43,37 @@ class Login extends React.Component {
             </button>
           </Nav>
         </Navbar>
-        <h2>Top Nine</h2>
-        <Form className="form" onSubmit={this.login}>
-          <Col>
-            <FormGroup>
-              <Label>Username</Label>
-              <Input
-                type="text"
-                name="username"
-                placeholder="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-          </Col>
-          <Col>
-            <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
-                type="password"
-                name="password"
-                placeholder="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-          </Col>
-          <button className="sign" type="submit">
-            Login
-          </button>
-        </Form>
-      </Container>
+        <div className="loginCont">
+          <p>Top Nine</p>
+          <Form className="form" onSubmit={this.login}>
+            <Col>
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="username"
+                  placeholder="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <button className="sign" type="submit">
+              Login
+            </button>
+          </Form>
+        </div>
+      </div>
     );
   }
 }

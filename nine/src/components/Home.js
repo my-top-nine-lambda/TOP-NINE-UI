@@ -38,29 +38,80 @@ class Home extends React.Component {
   render() {
     const { items } = this.state;
     return (
-      <div className="login">
+      <div className="cat">
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <Nav>
-            <a className="sign" href="/">
-              Sign Out
-            </a>
+            <button className="sign">
+              <a href="/">Sign Out</a>
+            </button>
           </Nav>
         </Navbar>
         <h1>Your Nine</h1>
-        {items.map((item) => {
-          return (
-            <div className="movie-card">
-              <h3 key={item.id}>{item.name}</h3>
-              <button className="edit" href={`/edit/${item.id}`}>
-                Edit
-              </button>
-              <button className="delete" onClick={() => this.delete(item.id)}>
-                X
-              </button>
-            </div>
-          );
-        })}
+        <div className="movieList">
+          <h3>Sports</h3>
+          {items.map((item) => {
+            return (
+              <div className="movie-card">
+                <h3 key={item.id}>{item.name}</h3>
+                <button className="edit" href={`/edit/${item.id}`}>
+                  Edit
+                </button>
+                <button className="delete" onClick={() => this.delete(item.id)}>
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
+        <div className="movieList">
+          <h3>Dramas</h3>
+          {items.map((item) => {
+            return (
+              <div className="movie-card">
+                <h3 key={item.id}>{item.name}</h3>
+                <button className="edit" href={`/edit/${item.id}`}>
+                  Edit
+                </button>
+                <button className="delete" onClick={() => this.delete(item.id)}>
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
+        <div className="movieList">
+          <h3>Scary</h3>
+          {items.map((item) => {
+            return (
+              <div className="movie-card">
+                <h3 key={item.id}>{item.name}</h3>
+                <button className="edit" href={`/edit/${item.id}`}>
+                  Edit
+                </button>
+                <button className="delete" onClick={() => this.delete(item.id)}>
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
+        <div className="movieList">
+          <h3>Comedy</h3>
+          {items.map((item) => {
+            return (
+              <div className="movie-card">
+                <h3 key={item.id}>{item.name}</h3>
+                <button className="edit" href={`/edit/${item.id}`}>
+                  Edit
+                </button>
+                <button className="delete" onClick={() => this.delete(item.id)}>
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

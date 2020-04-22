@@ -38,7 +38,7 @@ class Movies extends React.Component {
 
   render() {
     return (
-      <div className="cat">
+      <div className="editMovie">
         <Navbar className="bar">
           <h2>Top Nine</h2>
         </Navbar>
