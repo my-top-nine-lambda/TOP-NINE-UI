@@ -42,7 +42,7 @@ Login Page
 }
 
 .loginCont {
-  background-image: url(images/moviePic.jpg);
+  background-image: url(images/bmovie.jpeg);
   height: 700px;
   padding: 150px;
 }
@@ -77,7 +77,6 @@ Home Page
 */
 .cat {
   background-image: url(images/homePic.webp);
-  height: 700px;
 }
 .movies {
   display: flex;
