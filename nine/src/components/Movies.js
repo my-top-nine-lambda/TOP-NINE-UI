@@ -21,7 +21,7 @@ class Movies extends React.Component {
     e.preventDefault();
     axios
       .post(
-        "https://mtnbe.herokuapp.com/api/categories/moviesDB",
+        "https://top9-the2nd.herokuapp.com/api/movies",
         { name: this.state.name },
         {
           "Content-Type": "application/json",

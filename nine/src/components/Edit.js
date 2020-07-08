@@ -19,7 +19,7 @@ class Edit extends React.Component {
     e.preventDefault();
     axios
       .put(
-        `https://mtnbe.herokuapp.com/api/categories/moviesDB/${id}`,
+        `https://top9-the2nd.herokuapp.com/api/movies/${id}`,
         this.state.name,
         {
           "Content-Type": "application/json",

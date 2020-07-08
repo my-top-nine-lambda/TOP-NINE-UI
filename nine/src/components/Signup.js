@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Form, FormGroup, Input, Nav, Navbar } from "reactstrap";
+import axios from "axios";
 
 class Signup extends React.Component {
   state = {
@@ -20,8 +21,17 @@ class Signup extends React.Component {
 
   register = (e) => {
     e.preventDefault();
-    this.props.register(this.state.newUser);
-    this.props.history.push("/");
+    axios
+      .post(
+        "https://top9-the2nd.herokuapp.com/api/auth/register",
+        this.state.newUser
+      )
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.token);
+        this.props.history.push("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   render() {
@@ -43,7 +53,7 @@ class Signup extends React.Component {
                 <Input
                   type="username"
                   name="username"
-                  placeholder="username"
+                  placeholder="Username"
                   value={this.state.username}
                   onChange={this.handleChange}
                 />
@@ -54,12 +64,13 @@ class Signup extends React.Component {
                 <Input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Create a Password"
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
               </FormGroup>
             </Col>
+
             <button className="signB">Submit</button>
           </Form>
         </div>

@@ -13,7 +13,7 @@ class Login extends React.Component {
   login = (e) => {
     e.preventDefault();
     axios
-      .post("https://mtnbe.herokuapp.com/api/auth/login", this.state.user)
+      .post("https://top9-the2nd.herokuapp.com/api/auth/login", this.state.user)
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
