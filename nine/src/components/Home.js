@@ -53,6 +53,9 @@ class Home extends React.Component {
             <button className="signB">
               <a href="/">Sign Out</a>
             </button>
+            <button className="signB">
+              <a href="/movie">Movie</a>
+            </button>
           </Nav>
         </Navbar>
         <p className="h1">Your 9</p>

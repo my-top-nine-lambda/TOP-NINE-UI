@@ -15,7 +15,6 @@ class Login extends React.Component {
     axios
       .post("https://top9-the2nd.herokuapp.com/api/auth/login", this.state.user)
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/home");
       })

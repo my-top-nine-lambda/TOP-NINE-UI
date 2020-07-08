@@ -1,13 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { Form, FormGroup, Input, Button, Col, Navbar } from "reactstrap";
+import { Form, FormGroup, Input, Col, Navbar } from "reactstrap";
 
 class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      movieAdded: "",
     };
   }
 
@@ -31,30 +30,33 @@ class Movies extends React.Component {
       .then((response) => {
         this.setState({
           name: "",
-          movieAdded: response.data.message,
         });
-      });
+        this.props.history.push("/home");
+      })
+      .catch((error) => console.log(error));
   };
 
   render() {
     return (
-      <div className="editMovie">
+      <div className="AddMovie">
         <Navbar className="bar">
           <h2>Top Nine</h2>
         </Navbar>
-        <h2>Movie Additions</h2>
-        <Form onSubmit={this.handleSubmit}>
+        <h2>Add Your Movie</h2>
+        <Form className="form" onSubmit={this.handleSubmit}>
           <Col>
-            <p>{this.state.movieAdded && <div>Movie Added</div>}</p>
+            <p>
+              <div>Movie Added</div>
+            </p>
             <FormGroup>
               <Input
                 type="text"
-                placeholder="Name"
+                placeholder="Movie"
                 onChange={this.handleName}
                 value={this.state.name}
               />
             </FormGroup>
-            <Button>Add</Button>
+            <button className="signB">Add</button>
           </Col>
         </Form>
       </div>
