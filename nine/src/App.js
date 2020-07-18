@@ -8,6 +8,7 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Movies from "./components/Movies";
 import Edit from "./components/Edit";
+import Landing from "./components/LandingPage";
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends React.Component {
         />
         <Route path="/movie" component={Movies} />
         <Route path="/edit/:id" component={Edit} />
+        <Route path="/lan" component={Landing} />
       </div>
     );
   }

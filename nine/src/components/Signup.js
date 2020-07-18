@@ -37,14 +37,16 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="login">
-        <Navbar className="bar">
-          <h2>Top Nine</h2>
-          <Nav>
-            <button className="signB">
-              <a href="/">Login</a>
-            </button>
-          </Nav>
-        </Navbar>
+        <div className="bar">
+          <Navbar>
+            <h2>Top Nine</h2>
+            <Nav>
+              <button className="signB">
+                <a href="/">Login</a>
+              </button>
+            </Nav>
+          </Navbar>
+        </div>
         <div className="register">
           <h2>Register</h2>
           <Form className="form" onSubmit={this.register}>

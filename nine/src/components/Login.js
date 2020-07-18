@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Col, Form, FormGroup, Input, Navbar, Nav } from "reactstrap";
+import { Col, Form, FormGroup, Input, Navbar } from "reactstrap";
 
 class Login extends React.Component {
   state = {
@@ -18,7 +18,10 @@ class Login extends React.Component {
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/home");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Invalid Credentials");
+      });
   };
 
   handleChange = (e) => {
@@ -34,16 +37,16 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-        <Navbar className="bar">
-          <h2>Top Nine</h2>
-          <Nav>
+        <div className="bar">
+          <Navbar>
+            <h2>Top Nine</h2>
             <button className="signB">
               <a href="/register">Register</a>
             </button>
-          </Nav>
-        </Navbar>
+          </Navbar>
+        </div>
         <div className="loginCont">
-          <p>Top Nine</p>
+          <p className="title">Top Nine</p>
           <Form className="form" onSubmit={this.login}>
             <Col>
               <FormGroup>
@@ -67,6 +70,7 @@ class Login extends React.Component {
                 />
               </FormGroup>
             </Col>
+
             <button className="signB" type="submit">
               Login
             </button>

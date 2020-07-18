@@ -11,7 +11,7 @@ class Edit extends React.Component {
   }
   updateInput = (e) => {
     this.setState({
-      name: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -26,8 +26,13 @@ class Edit extends React.Component {
           headers: { authorization: localStorage.getItem("token") },
         }
       )
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        console.log(res);
+        const movie = res.data;
+        this.setState({
+          name: movie,
+        });
+        this.props.history.push("/home");
       })
       .catch((error) => {
         console.log(error);

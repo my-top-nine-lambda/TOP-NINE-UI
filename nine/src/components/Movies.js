@@ -12,7 +12,7 @@ class Movies extends React.Component {
 
   handleName = (e) => {
     this.setState({
-      name: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -41,13 +41,13 @@ class Movies extends React.Component {
       <div className="AddMovie">
         <Navbar className="bar">
           <h2>Top Nine</h2>
+          <button className="signB">
+            <a href="/home">Home</a>
+          </button>
         </Navbar>
         <h2>Add Your Movie</h2>
         <Form className="form" onSubmit={this.handleSubmit}>
           <Col>
-            <p>
-              <div>Movie Added</div>
-            </p>
             <FormGroup>
               <Input
                 type="text"

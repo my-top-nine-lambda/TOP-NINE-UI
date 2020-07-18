@@ -47,17 +47,19 @@ class Home extends React.Component {
 
     return (
       <div className="home">
-        <Navbar className="bar">
-          <h2>Top Nine</h2>
-          <Nav>
-            <button className="signB">
-              <a href="/">Sign Out</a>
-            </button>
-            <button className="signB">
-              <a href="/movie">Movie</a>
-            </button>
-          </Nav>
-        </Navbar>
+        <div className="bar">
+          <Navbar>
+            <h2>Top Nine</h2>
+            <Nav>
+              <button className="signB">
+                <a href="/">Sign Out</a>
+              </button>
+              <button className="signB">
+                <a href="/movie">Movie</a>
+              </button>
+            </Nav>
+          </Navbar>
+        </div>
         <p className="h1">Your 9</p>
         <div className="movies">
           <div className="movieList">
