@@ -52,7 +52,7 @@ class Home extends React.Component {
             <h2>Top Nine</h2>
             <Nav>
               <button className="signB">
-                <a href="/">Sign Out</a>
+                <a href="/login">Sign Out</a>
               </button>
               <button className="signB">
                 <a href="/movie">Movie</a>
@@ -63,7 +63,7 @@ class Home extends React.Component {
         <p className="h1">Your 9</p>
         <div className="movies">
           <div className="movieList">
-            <p>Sport</p>
+            <p id="para">Sport</p>
             {sports.map((item) => {
               return (
                 <div key={item.id} className="movie-card">

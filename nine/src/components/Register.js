@@ -29,7 +29,7 @@ class Signup extends React.Component {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        this.props.history.push("/");
+        this.props.history.push("/login");
       })
       .catch((error) => console.log(error));
   };
@@ -42,7 +42,7 @@ class Signup extends React.Component {
             <h2>Top Nine</h2>
             <Nav>
               <button className="signB">
-                <a href="/">Login</a>
+                <a href="/login">Login</a>
               </button>
             </Nav>
           </Navbar>

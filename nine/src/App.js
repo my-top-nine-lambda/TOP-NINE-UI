@@ -4,7 +4,7 @@ import axios from "axios";
 import { Route } from "react-router-dom";
 
 import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Register from "./components/Register";
 import Home from "./components/Home";
 import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={Landing} />
+        <Route exact path="/" component={Landing} />
         <Route
           exact
           path="/login"
@@ -38,7 +38,7 @@ class App extends React.Component {
         />
         <Route
           path="/register"
-          render={(props) => <Signup {...props} register={this.register} />}
+          render={(props) => <Register {...props} register={this.register} />}
         />
         <Route
           path="/home"

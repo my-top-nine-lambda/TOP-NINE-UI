@@ -15,6 +15,10 @@ Landing Page
   padding: 150px;
 }
 
+#para {
+  color: white;
+  font-weight: 900;
+}
 /*
 Register
 */
@@ -65,7 +69,6 @@ h2 {
 
 .bar {
   background-color: yellow;
-  position: fixed;
   width: 100%;
   z-index: 1;
 }

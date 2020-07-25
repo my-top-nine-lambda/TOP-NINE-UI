@@ -16,6 +16,12 @@ class Landing extends React.Component {
         </div>
         <div className="landCont">
           <p className="title">Top Nine</p>
+          <div>
+            <p id="para">
+              When was the last time you had you pick your Top 10 when it comes
+              to movies? Never, well here's your chance!
+            </p>
+          </div>
           <Form className="form">
             <p id="para">Don't have an account?</p>
             <button className="signB">
