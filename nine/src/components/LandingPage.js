@@ -10,14 +10,14 @@ class Landing extends React.Component {
           <Navbar>
             <h2>Top Nine</h2>
             <button className="signB" type="submit">
-              Login
+              <a href="/login">Login</a>
             </button>
           </Navbar>
         </div>
-        <div className="loginCont">
+        <div className="landCont">
           <p className="title">Top Nine</p>
           <Form className="form">
-            <p>Don't have an account?</p>
+            <p id="para">Don't have an account?</p>
             <button className="signB">
               <a href="/register">Register</a>
             </button>

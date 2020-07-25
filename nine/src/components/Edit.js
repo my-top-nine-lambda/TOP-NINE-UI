@@ -9,7 +9,7 @@ class Edit extends React.Component {
       name: "",
     };
   }
-  updateInput = (e) => {
+  handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -53,7 +53,7 @@ class Edit extends React.Component {
               name="edit"
               placeholder="Edit"
               value={this.state.name}
-              onChange={this.updateInput}
+              onChange={this.handleChange}
             />
             <Button type="submit">edit</Button>
           </Col>

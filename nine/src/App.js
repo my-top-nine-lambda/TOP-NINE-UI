@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
-import Movies from "./components/Movies";
+import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
 import Landing from "./components/LandingPage";
 
@@ -30,9 +30,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Route path="/" component={Landing} />
         <Route
           exact
-          path="/"
+          path="/login"
           render={(props) => <Login {...props} login={this.login} />}
         />
         <Route
@@ -43,9 +44,8 @@ class App extends React.Component {
           path="/home"
           render={(props) => <Home {...props} postItem={this.postItem} />}
         />
-        <Route path="/movie" component={Movies} />
+        <Route path="/movie" component={AddMovies} />
         <Route path="/edit/:id" component={Edit} />
-        <Route path="/lan" component={Landing} />
       </div>
     );
   }

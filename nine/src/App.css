@@ -5,6 +5,15 @@
 .App {
   text-align: center;
 }
+/*
+Landing Page
+*/
+
+.landCont {
+  background-image: url(images/celebmix.png);
+  height: 700px;
+  padding: 150px;
+}
 
 /*
 Register
