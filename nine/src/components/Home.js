@@ -49,7 +49,7 @@ class Home extends React.Component {
       <div className="home">
         <div className="bar">
           <Navbar>
-            <h2>Top Nine</h2>
+            <h2>Top 3</h2>
             <Nav>
               <button className="signB">
                 <a href="/login">Sign Out</a>
@@ -60,7 +60,7 @@ class Home extends React.Component {
             </Nav>
           </Navbar>
         </div>
-        <p className="h1">Your 9</p>
+        <p className="h1">Your 3</p>
         <div className="movies">
           <div className="movieList">
             <p id="para">Sport</p>

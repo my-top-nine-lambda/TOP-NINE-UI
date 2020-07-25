@@ -39,42 +39,44 @@ class Login extends React.Component {
       <div className="login">
         <div className="bar">
           <Navbar>
-            <h2>Top Nine</h2>
-            <button className="signB">
-              <a href="/register">Register</a>
-            </button>
+            <h2>Top 3</h2>
           </Navbar>
         </div>
         <div className="loginCont">
-          <p className="title">Top Nine</p>
-          <Form className="form" onSubmit={this.login}>
-            <Col>
-              <FormGroup>
-                <Input
-                  type="text"
-                  name="username"
-                  placeholder="username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-            </Col>
-            <Col>
-              <FormGroup>
-                <Input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-            </Col>
+          <div className="loginCard">
+            <p className="title">Top 3</p>
+            <Form className="form" onSubmit={this.login}>
+              <Col>
+                <FormGroup>
+                  <Input
+                    type="text"
+                    name="username"
+                    placeholder="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <Input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+              </Col>
 
-            <button className="signB" type="submit">
-              Login
-            </button>
-          </Form>
+              <button className="signB" type="submit">
+                Login
+              </button>
+              <p id="para">Don't have an account?</p>
+
+              <a href="/register">Register</a>
+            </Form>
+          </div>
         </div>
       </div>
     );

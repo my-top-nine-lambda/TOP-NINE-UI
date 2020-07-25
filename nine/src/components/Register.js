@@ -39,10 +39,10 @@ class Signup extends React.Component {
       <div className="login">
         <div className="bar">
           <Navbar>
-            <h2>Top Nine</h2>
+            <h2>Top 3</h2>
             <Nav>
               <button className="signB">
-                <a href="/login">Login</a>
+                <a href="/login">Sign In</a>
               </button>
             </Nav>
           </Navbar>

@@ -8,26 +8,28 @@ class Landing extends React.Component {
       <div className="login">
         <div className="bar">
           <Navbar>
-            <h2>Top Nine</h2>
+            <h2>Top 3</h2>
             <button className="signB" type="submit">
-              <a href="/login">Login</a>
+              <a href="/login">Sign In</a>
             </button>
           </Navbar>
         </div>
         <div className="landCont">
-          <p className="title">Top Nine</p>
-          <div>
-            <p id="para">
-              When was the last time you had you pick your Top 10 when it comes
-              to movies? Never, well here's your chance!
-            </p>
+          <div className="landCard">
+            <p className="title">Top 3</p>
+            <div>
+              <p id="para">
+                When was the last time you had you pick your Top 10 when it
+                comes to movies? Never, well here's your chance!
+              </p>
+            </div>
+            <Form className="form">
+              <p id="para">Click here to Sign Up</p>
+              <button className="signB">
+                <a href="/register">Register</a>
+              </button>
+            </Form>
           </div>
-          <Form className="form">
-            <p id="para">Don't have an account?</p>
-            <button className="signB">
-              <a href="/register">Register</a>
-            </button>
-          </Form>
         </div>
       </div>
     );
