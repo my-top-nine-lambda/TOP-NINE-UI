@@ -48,7 +48,7 @@ class Signup extends React.Component {
           </Navbar>
         </div>
         <div className="register">
-          <h2>Register</h2>
+          <h2>Register Here</h2>
           <Form className="form" onSubmit={this.register}>
             <Col>
               <FormGroup>
