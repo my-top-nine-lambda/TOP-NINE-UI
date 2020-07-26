@@ -32,6 +32,7 @@ class Edit extends React.Component {
         this.setState({
           name: movie,
         });
+        // redirect to home page
         this.props.history.push("/home");
       })
       .catch((error) => {
@@ -45,6 +46,9 @@ class Edit extends React.Component {
       <div>
         <Navbar className="bar">
           <h2>Top Nine</h2>
+          <button className="signB">
+            <a href="/login">Sign Out</a>
+          </button>
         </Navbar>
         <Form onSubmit={(e) => this.updateItem(e, this.props.match.params.id)}>
           <Col>

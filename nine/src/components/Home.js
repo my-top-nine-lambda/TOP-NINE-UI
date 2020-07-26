@@ -68,8 +68,8 @@ class Home extends React.Component {
               return (
                 <div key={item.id} className="movie-card">
                   <h3 key={item.id}>{item.name}</h3>
-                  <button className="edit" href={`/edit/${item.id}`}>
-                    Edit
+                  <button className="edit">
+                    <a href={`/edit/${item.id}`}>Edit</a>
                   </button>
                   <button
                     className="delete"

@@ -72,7 +72,7 @@ class Login extends React.Component {
               <button className="signB" type="submit">
                 Login
               </button>
-              <p id="para">Create an account!</p>
+              <p id="para">Create an account</p>
 
               <a href="/register">Register</a>
             </Form>
