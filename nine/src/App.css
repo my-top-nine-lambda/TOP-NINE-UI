@@ -78,7 +78,6 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 45px;
   font-weight: 700;
-  font-display: ;
 }
 
 .bar {
@@ -103,8 +102,8 @@ Home Page
   color: yellow;
   margin: 30px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 70px;
-  font-weight: 900;
+  font-size: 45px;
+  font-weight: 700;
 }
 
 .home {
@@ -143,3 +142,17 @@ Home Page
 /*
 AddMovie Page
 */
+.addMovie {
+  background-color: dodgerblue;
+  height: 700px;
+}
+.addCard {
+  margin-top: 100px;
+}
+
+.title1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+}

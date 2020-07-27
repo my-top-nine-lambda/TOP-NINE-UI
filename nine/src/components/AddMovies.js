@@ -36,28 +36,30 @@ class Movies extends React.Component {
 
   render() {
     return (
-      <div className="AddMovie">
+      <div className="addMovie">
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <button className="signB">
             <a href="/home">Home</a>
           </button>
         </Navbar>
-        <h2>Add Your Movie</h2>
-        <Form className="form" onSubmit={this.addMovie}>
-          <Col>
-            <FormGroup>
-              <Input
-                type="text"
-                name="movie"
-                placeholder="Movie"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <button className="signB">Add</button>
-          </Col>
-        </Form>
+        <div className="addCard">
+          <p className="title1">Add Your Movie</p>
+          <Form className="form" onSubmit={this.addMovie}>
+            <Col>
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="movie"
+                  placeholder="Movie"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <button className="signB">Add</button>
+            </Col>
+          </Form>
+        </div>
       </div>
     );
   }
