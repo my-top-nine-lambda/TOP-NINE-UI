@@ -60,7 +60,7 @@ class Home extends React.Component {
             </Nav>
           </Navbar>
         </div>
-        <p className="h1">Your 3</p>
+        <p className="h1">Genre</p>
         <div className="movies">
           <div className="movieList">
             <p id="para">Sport</p>

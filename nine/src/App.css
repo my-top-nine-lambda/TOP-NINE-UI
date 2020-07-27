@@ -100,11 +100,11 @@ Home Page
 */
 
 .h1 {
-  color: red;
+  color: yellow;
   margin: 30px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 60px;
-  font-weight: 1000;
+  font-size: 70px;
+  font-weight: 900;
 }
 
 .home {
