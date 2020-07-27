@@ -47,7 +47,7 @@ class Edit extends React.Component {
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <button className="signB">
-            <a href="/login">Sign Out</a>
+            <a href="/home">Home</a>
           </button>
         </Navbar>
         <Form onSubmit={(e) => this.updateItem(e, this.props.match.params.id)}>

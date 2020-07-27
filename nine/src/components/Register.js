@@ -31,7 +31,9 @@ class Signup extends React.Component {
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/login");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   render() {

@@ -27,16 +27,16 @@ class Home extends React.Component {
       });
   }
 
-  delete = (id) => {
-    let items = this.state.items;
-    let index = items.findIndex((el) => el.id === id);
-    items.splice(index, 1);
-
-    // let items = this.state.items;
-    // items = items.filter((item) => item.id !== id);
-    // this.setState({
-    //   items,
-    // });
+  deleteMovie = (id) => {
+    axios
+      .delete(`https://top9-the2nd.herokuapp.com/api/movies/${id}`)
+      .then((res) => {
+        const movie = res.data;
+        this.setState({ movie });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -55,7 +55,7 @@ class Home extends React.Component {
                 <a href="/login">Sign Out</a>
               </button>
               <button className="signB">
-                <a href="/movie">Movie</a>
+                <a href="/movie">+Movie</a>
               </button>
             </Nav>
           </Navbar>
@@ -73,7 +73,7 @@ class Home extends React.Component {
                   </button>
                   <button
                     className="delete"
-                    onClick={() => this.delete(item.id)}
+                    onClick={() => this.deleteMovie(item.id)}
                   >
                     X
                   </button>
