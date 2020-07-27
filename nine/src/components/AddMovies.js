@@ -16,7 +16,7 @@ class Movies extends React.Component {
 
   addMovie = (e) => {
     e.preventDefault();
-    return axios
+    axios
       .post(
         "https://top9-the2nd.herokuapp.com/api/movies",
         { name: this.state.name },

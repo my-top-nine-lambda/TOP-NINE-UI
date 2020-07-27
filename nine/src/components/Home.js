@@ -17,7 +17,7 @@ class Home extends React.Component {
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         this.setState({
           items: response.data,
         });
