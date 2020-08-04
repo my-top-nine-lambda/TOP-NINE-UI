@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Button, Col, Form, Input, Navbar } from "reactstrap";
+import { Col, Form, Input, Navbar } from "reactstrap";
 
 class Edit extends React.Component {
   constructor(props) {
@@ -43,25 +43,32 @@ class Edit extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="editPage">
         <Navbar className="bar">
           <h2>Top Nine</h2>
           <button className="signB">
             <a href="/home">Home</a>
           </button>
         </Navbar>
-        <Form onSubmit={(e) => this.updateItem(e, this.props.match.params.id)}>
-          <Col>
-            <Input
-              type="text"
-              name="edit"
-              placeholder="Edit"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <Button type="submit">edit</Button>
-          </Col>
-        </Form>
+        <div className="editForm">
+          <Form
+            onSubmit={(e) => this.updateItem(e, this.props.match.params.id)}
+          >
+            <Col>
+              <Input
+                id="editInput"
+                type="text"
+                name="edit"
+                placeholder="Edit"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <button id="editButton" className="signB" type="submit">
+                Submit
+              </button>
+            </Col>
+          </Form>
+        </div>
       </div>
     );
   }

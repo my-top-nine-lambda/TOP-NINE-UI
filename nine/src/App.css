@@ -156,3 +156,23 @@ AddMovie Page
   font-size: 38px;
   font-weight: 700;
 }
+
+/* Edit Page */
+
+.editPage {
+  background-color: dodgerblue;
+  height: 700px;
+}
+
+.editForm {
+  width: 300px;
+  margin: 100px auto;
+}
+
+#editButton {
+  margin-top: 20px;
+}
+
+#editInput {
+  border: 2px solid black;
+}
