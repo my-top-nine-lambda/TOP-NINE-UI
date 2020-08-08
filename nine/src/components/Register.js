@@ -57,7 +57,7 @@ class Signup extends React.Component {
                 <Input
                   type="username"
                   name="username"
-                  placeholder="Username"
+                  placeholder="Create Username"
                   value={this.state.username}
                   onChange={this.handleChange}
                 />
@@ -68,7 +68,18 @@ class Signup extends React.Component {
                 <Input
                   type="password"
                   name="password"
-                  placeholder="Create a Password"
+                  placeholder="Create Password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Input
+                  type="password"
+                  name="password"
+                  placeholder="Confirm Password"
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
