@@ -3,13 +3,16 @@ import axios from "axios";
 import { Form, FormGroup, Input, Col, Navbar } from "reactstrap";
 
 class Movies extends React.Component {
-  state = {
-    name: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+    };
+  }
 
   handleChange = (e) => {
     this.setState({
-      ...this.state.name,
+      ...this.state.items,
       [e.target.name]: e.target.value,
     });
   };

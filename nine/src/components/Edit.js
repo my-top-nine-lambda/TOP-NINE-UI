@@ -6,11 +6,13 @@ class Edit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      items: [],
     };
   }
+
   handleChange = (e) => {
     this.setState({
+      ...this.state.items,
       [e.target.name]: e.target.value,
     });
   };
@@ -20,7 +22,7 @@ class Edit extends React.Component {
     axios
       .put(
         `https://top9-the2nd.herokuapp.com/api/movies/${id}`,
-        this.state.name,
+        this.state.items,
         {
           "Content-Type": "application/json",
           headers: { authorization: localStorage.getItem("token") },
@@ -30,7 +32,7 @@ class Edit extends React.Component {
         console.log(res);
         const movie = res.data;
         this.setState({
-          name: movie,
+          items: movie,
         });
         // redirect to home page
         this.props.history.push("/home");
@@ -58,7 +60,7 @@ class Edit extends React.Component {
             <Col>
               <Input
                 id="editInput"
-                type="text"
+                type="edit"
                 name="edit"
                 placeholder="Edit"
                 value={this.state.name}
