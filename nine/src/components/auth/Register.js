@@ -32,6 +32,7 @@ class Signup extends React.Component {
         this.props.history.push("/login");
       })
       .catch((error) => {
+        console.log(error);
         alert(error);
       });
   };

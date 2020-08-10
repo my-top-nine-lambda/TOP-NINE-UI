@@ -18,8 +18,8 @@ const Landing = (props) => {
           <p className="title">Top 3</p>
           <div>
             <p id="para">
-              When was the last time you had to pick your Top 3 when it comes to
-              movies? Never, well here's your chance!
+              When was the last time you had to pick your Top 3 movies? Don't
+              worry I'll wait...well here's your chance!
             </p>
           </div>
           <Form className="form">

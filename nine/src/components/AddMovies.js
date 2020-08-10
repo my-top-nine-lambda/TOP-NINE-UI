@@ -10,19 +10,12 @@ class Movies extends React.Component {
     };
   }
 
-  handleChange = (e) => {
-    this.setState({
-      ...this.state.items,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  addMovie = (e) => {
+  addMovie = (e, name) => {
     e.preventDefault();
     axios
       .post(
         "https://top9-the2nd.herokuapp.com/api/movies",
-        { name: this.state.name },
+        { name: this.state.items },
         {
           "Content-Type": "application/json",
           headers: { authorization: localStorage.getItem("token") },
@@ -30,6 +23,7 @@ class Movies extends React.Component {
       )
       .then((res) => {
         this.setState({
+          ...this.state.items,
           name: res.data,
         });
         this.props.history.push("/home");
@@ -55,8 +49,8 @@ class Movies extends React.Component {
                   type="text"
                   name="movie"
                   placeholder="Movie"
-                  value={this.state.name}
-                  onChange={this.handleChange}
+                  value={this.props.value}
+                  onChange={this.props.handleChange}
                 />
               </FormGroup>
               <button className="signB">Add</button>

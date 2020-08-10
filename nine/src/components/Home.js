@@ -26,23 +26,8 @@ class Home extends React.Component {
       });
   }
 
-  deleteMovie = (id) => {
-    axios
-      .delete(`https://top9-the2nd.herokuapp.com/api/movies/${id}`)
-      .then((res) => {
-        const movie = res.data;
-        this.setState({ movie });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   render() {
     const sports = this.state.items;
-    // const drama = this.state.dramaItems;
-    // const comedy = this.state.comedyItems;
-    // const scary = this.state.scaryItems;
 
     return (
       <div className="home">
@@ -51,10 +36,10 @@ class Home extends React.Component {
             <h2>Top 3</h2>
             <Nav>
               <button className="signB">
-                <a href="/login">Sign Out</a>
+                <a href="/movie">+Movie</a>
               </button>
               <button className="signB">
-                <a href="/movie">+Movie</a>
+                <a href="/login">Sign Out</a>
               </button>
             </Nav>
           </Navbar>
@@ -72,7 +57,7 @@ class Home extends React.Component {
                   </button>
                   <button
                     className="delete"
-                    onClick={() => this.deleteMovie(item.id)}
+                    onClick={() => this.props.delete()}
                   >
                     X
                   </button>
