@@ -6,7 +6,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      movies: [],
     };
   }
 
@@ -18,7 +18,7 @@ class Home extends React.Component {
       })
       .then((response) => {
         this.setState({
-          items: response.data,
+          movies: response.data,
         });
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const sports = this.state.items;
+    const sports = this.state.movies;
 
     return (
       <div className="home">
@@ -48,12 +48,12 @@ class Home extends React.Component {
         <div className="movies">
           <div className="movieList">
             <p id="para">Sport</p>
-            {sports.map((item) => {
+            {sports.map((movie) => {
               return (
-                <div key={item.id} className="movie-card">
-                  <h3 key={item.id}>{item.name}</h3>
+                <div key={movie.id} className="movie-card">
+                  <h3 key={movie.id}>{movie.name}</h3>
                   <button className="edit">
-                    <a href={`/edit/${item.id}`}>Edit</a>
+                    <a href={`/edit/${movie.id}`}>Edit</a>
                   </button>
                   <button
                     className="delete"

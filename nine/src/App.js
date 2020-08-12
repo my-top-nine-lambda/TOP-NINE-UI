@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      movies: [],
     };
   }
 
@@ -26,7 +26,7 @@ class App extends React.Component {
       })
       .then((response) => {
         this.setState({
-          items: response.data,
+          movies: response.data,
         });
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   handleChange = (e) => {
     this.setState({
-      ...this.state.items,
+      ...this.state.movies,
       [e.target.name]: e.target.value,
     });
   };

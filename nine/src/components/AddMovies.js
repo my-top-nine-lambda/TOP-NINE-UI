@@ -6,7 +6,7 @@ class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      movies: [],
     };
   }
 
@@ -15,7 +15,7 @@ class Movies extends React.Component {
     axios
       .post(
         "https://top9-the2nd.herokuapp.com/api/movies",
-        { name: this.state.items },
+        { name: this.props.name },
         {
           "Content-Type": "application/json",
           headers: { authorization: localStorage.getItem("token") },
@@ -23,7 +23,6 @@ class Movies extends React.Component {
       )
       .then((res) => {
         this.setState({
-          ...this.state.items,
           name: res.data,
         });
         this.props.history.push("/home");
