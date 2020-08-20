@@ -41,6 +41,26 @@ class App extends React.Component {
     });
   };
 
+  updateMovie = (changes, id) => {
+    console.log(changes);
+    axios
+      .put(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, changes, {
+        "Content-Type": "application/json",
+        headers: { authorization: localStorage.getItem("token") },
+      })
+      .then((res) => {
+        const movie = res.data;
+        this.setState({
+          movie,
+        });
+        // redirect to home page
+        this.props.history.push("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   deleteMovie = (id) => {
     axios
       .delete(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, {
@@ -67,6 +87,7 @@ class App extends React.Component {
           render={(props) => (
             <Home
               {...props}
+              movies={this.state.movies}
               componentDidMount={this.componentDidMount}
               delete={this.deleteMovie}
             />
@@ -78,11 +99,21 @@ class App extends React.Component {
             <AddMovies
               {...props}
               handleChange={this.handleChange}
+              value={this.state.movies}
+            />
+          )}
+        />
+        <Route
+          path="/edit/:id"
+          render={(props) => (
+            <Edit
+              {...props}
+              handleChange={this.handleChange}
+              updateMovie={this.updateMovie}
               value={this.state.name}
             />
           )}
         />
-        <Route path="/edit/:id" component={Edit} />
       </div>
     );
   }
