@@ -15,7 +15,10 @@ class Movies extends React.Component {
     });
   };
 
-  submitMovie = () => {};
+  submitMovie = (e) => {
+    e.preventDefault();
+    this.props.addMovie(this.state.name);
+  };
   render() {
     return (
       <div className="addMovie">

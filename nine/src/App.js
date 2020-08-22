@@ -40,8 +40,7 @@ class App extends React.Component {
     });
   };
 
-  addMovie = (e) => {
-    e.preventDefault();
+  addMovie = () => {
     axios
       .post(
         "https://top9-the2nd.herokuapp.com/api/movies",
@@ -52,20 +51,19 @@ class App extends React.Component {
         }
       )
       .then((res) => {
-        console.log(this.props);
         const movie = {
           name: "",
         };
         this.setState({
           movies: [...this.state.movies, movie],
         });
-        this.props.history.push("/home");
+        this.history.push("/home");
       })
       .catch((error) => console.log(error));
   };
 
-  updateMovie = (changes, id) => {
-    console.log(changes);
+  updateMovie = (e, changes, id) => {
+    e.preventDefault();
     axios
       .put(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, changes, {
         "Content-Type": "application/json",
@@ -77,14 +75,15 @@ class App extends React.Component {
           movie,
         });
         // redirect to home page
-        this.props.history.push("/home");
+        this.history.push("/home");
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  deleteMovie = (id) => {
+  deleteMovie = (e, id) => {
+    e.preventDefault();
     axios
       .delete(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, {
         "Content-Type": "application/json",
