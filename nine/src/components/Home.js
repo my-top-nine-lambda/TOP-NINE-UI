@@ -30,7 +30,7 @@ const Home = (props) => {
                 <button className="edit">
                   <a href={`/edit/${movie.id}`}>Edit</a>
                 </button>
-                <button className="delete" onClick={() => props.delete()}>
+                <button className="delete" onClick={(id) => props.delete(id)}>
                   X
                 </button>
               </div>

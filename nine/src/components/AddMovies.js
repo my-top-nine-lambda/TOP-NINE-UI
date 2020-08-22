@@ -1,35 +1,21 @@
 import React from "react";
-import axios from "axios";
 import { Form, FormGroup, Input, Col, Navbar } from "reactstrap";
 
 class Movies extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      movies: [],
+      name: "",
     };
   }
 
-  addMovie = (e, name) => {
-    e.preventDefault();
-    axios
-      .post(
-        "https://top9-the2nd.herokuapp.com/api/movies",
-        { name: this.props.name },
-        {
-          "Content-Type": "application/json",
-          headers: { authorization: localStorage.getItem("token") },
-        }
-      )
-      .then((res) => {
-        this.setState({
-          name: res.data,
-        });
-        this.props.history.push("/home");
-      })
-      .catch((error) => console.log(error));
+  handleChange = (e) => {
+    this.setState({
+      name: e.target.value,
+    });
   };
 
+  submitMovie = () => {};
   render() {
     return (
       <div className="addMovie">
@@ -41,15 +27,15 @@ class Movies extends React.Component {
         </Navbar>
         <div className="addCard">
           <p className="title1">Add Your Movie</p>
-          <Form className="form" onSubmit={this.addMovie}>
+          <Form className="form" onSubmit={this.submitMovie}>
             <Col>
               <FormGroup>
                 <Input
                   type="text"
                   name="movie"
                   placeholder="Movie"
-                  value={this.props.value}
-                  onChange={this.props.handleChange}
+                  value={this.state.name}
+                  onChange={this.handleChange}
                 />
               </FormGroup>
               <button className="signB">Add</button>

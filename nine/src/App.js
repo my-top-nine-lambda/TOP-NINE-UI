@@ -36,9 +36,31 @@ class App extends React.Component {
 
   handleChange = (e) => {
     this.setState({
-      ...this.state.movies,
       [e.target.name]: e.target.value,
     });
+  };
+
+  addMovie = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "https://top9-the2nd.herokuapp.com/api/movies",
+
+        {
+          "Content-Type": "application/json",
+          headers: { authorization: localStorage.getItem("token") },
+        }
+      )
+      .then((res) => {
+        const movie = {
+          name: "",
+        };
+        this.setState({
+          movies: [...this.state.movies, movie],
+        });
+        this.props.history.push("/home");
+      })
+      .catch((error) => console.log(error));
   };
 
   updateMovie = (changes, id) => {
@@ -88,7 +110,6 @@ class App extends React.Component {
             <Home
               {...props}
               movies={this.state.movies}
-              componentDidMount={this.componentDidMount}
               delete={this.deleteMovie}
             />
           )}
@@ -98,8 +119,9 @@ class App extends React.Component {
           render={(props) => (
             <AddMovies
               {...props}
+              addMovie={this.addMovie}
               handleChange={this.handleChange}
-              value={this.state.movies}
+              value={this.state.name}
             />
           )}
         />
