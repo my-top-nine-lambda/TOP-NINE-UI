@@ -52,6 +52,7 @@ class App extends React.Component {
         }
       )
       .then((res) => {
+        console.log(this.props);
         const movie = {
           name: "",
         };
@@ -116,14 +117,7 @@ class App extends React.Component {
         />
         <Route
           path="/movie"
-          render={(props) => (
-            <AddMovies
-              {...props}
-              addMovie={this.addMovie}
-              handleChange={this.handleChange}
-              value={this.state.name}
-            />
-          )}
+          render={(props) => <AddMovies {...props} addMovie={this.addMovie} />}
         />
         <Route
           path="/edit/:id"
