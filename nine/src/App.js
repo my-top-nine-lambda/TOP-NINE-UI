@@ -25,6 +25,7 @@ class App extends React.Component {
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((response) => {
+        console.log(response.data);
         this.setState({
           movies: response.data,
         });
@@ -33,12 +34,6 @@ class App extends React.Component {
         console.log(error);
       });
   }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
 
   addMovie = () => {
     axios
@@ -96,6 +91,12 @@ class App extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   render() {

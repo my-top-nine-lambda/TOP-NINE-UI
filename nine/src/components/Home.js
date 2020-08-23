@@ -18,6 +18,7 @@ const Home = (props) => {
           </Nav>
         </Navbar>
       </div>
+
       <p className="h1">Genre</p>
       <div className="movies">
         <div className="movieList">
