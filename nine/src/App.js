@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
 import Landing from "./components/LandingPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
   constructor(props) {
@@ -105,7 +106,7 @@ class App extends React.Component {
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route
+        <PrivateRoute
           path="/home"
           render={(props) => (
             <Home
@@ -115,11 +116,11 @@ class App extends React.Component {
             />
           )}
         />
-        <Route
+        <PrivateRoute
           path="/movie"
           render={(props) => <AddMovies {...props} addMovie={this.addMovie} />}
         />
-        <Route
+        <PrivateRoute
           path="/edit/:id"
           render={(props) => (
             <Edit

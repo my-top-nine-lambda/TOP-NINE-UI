@@ -51,7 +51,7 @@ class Login extends React.Component {
                     type="text"
                     name="username"
                     placeholder="username"
-                    value={this.state.username}
+                    value={this.state.user.username}
                     onChange={this.handleChange}
                   />
                 </FormGroup>
@@ -62,7 +62,7 @@ class Login extends React.Component {
                     type="password"
                     name="password"
                     placeholder="password"
-                    value={this.state.password}
+                    value={this.state.user.password}
                     onChange={this.handleChange}
                   />
                 </FormGroup>

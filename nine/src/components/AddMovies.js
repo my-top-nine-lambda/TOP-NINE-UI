@@ -11,6 +11,7 @@ class Movies extends React.Component {
 
   handleChange = (e) => {
     this.setState({
+      ...this.state.name,
       name: e.target.value,
     });
   };
