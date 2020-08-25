@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import axios from "axios";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
 import Landing from "./components/LandingPage";
-import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,8 +20,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const endpoint = "https://top9-the2nd.herokuapp.com/api/movies";
     axios
-      .get("https://top9-the2nd.herokuapp.com/api/movies", {
+      .get(endpoint, {
         "Content-Type": "application/json",
         headers: { authorization: localStorage.getItem("token") },
       })
@@ -37,9 +38,10 @@ class App extends React.Component {
   }
 
   addMovie = () => {
+    const endpoint = "https://top9-the2nd.herokuapp.com/api/movies";
     axios
       .post(
-        "https://top9-the2nd.herokuapp.com/api/movies",
+        endpoint,
 
         {
           "Content-Type": "application/json",
@@ -53,15 +55,15 @@ class App extends React.Component {
         this.setState({
           movies: [...this.state.movies, movie],
         });
-        this.history.push("/home");
+        this.props.history.push("/home");
       })
       .catch((error) => console.log(error));
   };
 
-  updateMovie = (e, changes, id) => {
-    e.preventDefault();
+  updateMovie = (changes, id) => {
+    const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
-      .put(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, changes, {
+      .put(endpoint, changes, {
         "Content-Type": "application/json",
         headers: { authorization: localStorage.getItem("token") },
       })
@@ -78,10 +80,10 @@ class App extends React.Component {
       });
   };
 
-  deleteMovie = (e, id) => {
-    e.preventDefault();
+  deleteMovie = (id) => {
+    const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
-      .delete(`https://top9-the2nd.herokuapp.com/api/movies/${id}`, {
+      .delete(endpoint, {
         "Content-Type": "application/json",
         headers: { authorization: localStorage.getItem("token") },
       })
@@ -103,34 +105,38 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <PrivateRoute
-          path="/home"
-          render={(props) => (
-            <Home
-              {...props}
-              movies={this.state.movies}
-              delete={this.deleteMovie}
-            />
-          )}
-        />
-        <PrivateRoute
-          path="/movie"
-          render={(props) => <AddMovies {...props} addMovie={this.addMovie} />}
-        />
-        <PrivateRoute
-          path="/edit/:id"
-          render={(props) => (
-            <Edit
-              {...props}
-              handleChange={this.handleChange}
-              updateMovie={this.updateMovie}
-              value={this.state.name}
-            />
-          )}
-        />
+        <Router>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route
+            path="/home"
+            render={(props) => (
+              <Home
+                {...props}
+                movies={this.state.movies}
+                delete={this.deleteMovie}
+              />
+            )}
+          />
+          <Route
+            path="/movie"
+            render={(props) => (
+              <AddMovies {...props} addMovie={this.addMovie} />
+            )}
+          />
+          <Route
+            path="/edit/:id"
+            render={(props) => (
+              <Edit
+                {...props}
+                handleChange={this.handleChange}
+                updateMovie={this.updateMovie}
+                value={this.state.name}
+              />
+            )}
+          />
+        </Router>
       </div>
     );
   }
