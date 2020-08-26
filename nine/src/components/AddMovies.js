@@ -2,8 +2,8 @@ import React from "react";
 import { Form, FormGroup, Input, Col, Navbar } from "reactstrap";
 
 class Movies extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: "",
     };
@@ -36,9 +36,9 @@ class Movies extends React.Component {
               <FormGroup>
                 <Input
                   type="text"
-                  name="movie"
+                  name="name"
                   placeholder="Movie"
-                  value={this.state.name}
+                  value={this.state.movies}
                   onChange={this.handleChange}
                 />
               </FormGroup>

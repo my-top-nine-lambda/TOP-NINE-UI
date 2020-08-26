@@ -38,25 +38,25 @@ class App extends React.Component {
       });
   }
 
-  addMovie = () => {
+  addMovie = (movie) => {
     // const endpoint = "https://top9-the2nd.herokuapp.com/api/movies";
     axiosWithAuth()
-      .post()
+      .post("", movie)
       .then((res) => {
         this.setState({
-          name: res.data,
+          name: res.data.name,
         });
         this.props.history.push("/home");
       })
       .catch((error) => console.log(error));
   };
 
-  updateMovie = (e, res, id) => {
+  updateMovie = (e, id, updateMovie) => {
     e.preventDefault();
 
     const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
-      .put(endpoint, {
+      .put(endpoint, updateMovie, {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
