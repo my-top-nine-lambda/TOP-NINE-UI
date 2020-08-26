@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import { axiosWithAuth } from "./components/auth/axiosWithAuth";
 import Home from "./components/Home";
 import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
@@ -38,42 +39,33 @@ class App extends React.Component {
   }
 
   addMovie = () => {
-    const endpoint = "https://top9-the2nd.herokuapp.com/api/movies";
-    axios
-      .post(
-        endpoint,
-
-        {
-          "Content-Type": "application/json",
-          headers: { authorization: localStorage.getItem("token") },
-        }
-      )
+    // const endpoint = "https://top9-the2nd.herokuapp.com/api/movies";
+    axiosWithAuth()
+      .post()
       .then((res) => {
-        const movie = {
-          name: "",
-        };
         this.setState({
-          movies: [...this.state.movies, movie],
+          name: res.data,
         });
         this.props.history.push("/home");
       })
       .catch((error) => console.log(error));
   };
 
-  updateMovie = (changes, id) => {
+  updateMovie = (e, res, id) => {
+    e.preventDefault();
+
     const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
-      .put(endpoint, changes, {
-        "Content-Type": "application/json",
-        headers: { authorization: localStorage.getItem("token") },
+      .put(endpoint, {
+        headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
-        const movie = res.data;
+        const movie = res.data.name;
         this.setState({
           movie,
         });
         // redirect to home page
-        this.history.push("/home");
+        this.props.history.push("/home");
       })
       .catch((error) => {
         console.log(error);
@@ -84,8 +76,7 @@ class App extends React.Component {
     const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
       .delete(endpoint, {
-        "Content-Type": "application/json",
-        headers: { authorization: localStorage.getItem("token") },
+        headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
         const movie = res.data;
@@ -114,6 +105,7 @@ class App extends React.Component {
             render={(props) => (
               <Home
                 {...props}
+                mount={this.componentDidMount}
                 movies={this.state.movies}
                 delete={this.deleteMovie}
               />
