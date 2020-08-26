@@ -5,6 +5,7 @@ import { Route, Redirect } from "react-router-dom";
 // it renders the Route and passes the props through
 // checks if user is authenticated, if so renders component
 // if no redirects to login
+// Still have yet to implement
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
