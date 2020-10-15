@@ -28,7 +28,7 @@ class App extends React.Component {
         headers: { authorization: localStorage.getItem("token") },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         this.setState({
           movies: response.data,
         });
@@ -44,25 +44,25 @@ class App extends React.Component {
       .post("", movie)
       .then((res) => {
         this.setState({
-          name: res.data.name,
+          movies: res.data.name,
         });
-        this.props.history.push("/home");
+        // this.props.history.push("/home");
       })
       .catch((error) => console.log(error));
   };
 
-  updateMovie = (e, id, updateMovie) => {
+  updateMovie = (e, id, updatedMovie) => {
     e.preventDefault();
 
     const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
     axios
-      .put(endpoint, updateMovie, {
+      .put(endpoint, updatedMovie, {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
         const movie = res.data.name;
         this.setState({
-          movie,
+          movies: movie,
         });
         // redirect to home page
         this.props.history.push("/home");

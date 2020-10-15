@@ -19,6 +19,18 @@ class Signup extends React.Component {
     });
   };
 
+  validate = () => {
+    const input1 = document.getElementById("input1");
+    const input2 = document.getElementById("input2");
+    if (input1.value !== "" && input2 !== "") {
+      if (input1.value === input2.value) {
+        return true;
+      }
+    }
+    alert("Passwords don't match");
+    return false;
+  };
+
   register = (e) => {
     e.preventDefault();
     axios
@@ -27,7 +39,6 @@ class Signup extends React.Component {
         this.state.newUser
       )
       .then((response) => {
-        console.log(response.data);
         localStorage.setItem("token", response.data.token);
         this.props.history.push("/login");
       })
@@ -67,6 +78,7 @@ class Signup extends React.Component {
             <Col>
               <FormGroup>
                 <Input
+                  id="input1"
                   type="password"
                   name="password"
                   placeholder="Create Password"
@@ -78,6 +90,7 @@ class Signup extends React.Component {
             <Col>
               <FormGroup>
                 <Input
+                  id="input2"
                   type="password"
                   name="password"
                   placeholder="Confirm Password"

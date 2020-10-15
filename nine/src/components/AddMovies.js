@@ -36,9 +36,9 @@ class Movies extends React.Component {
               <FormGroup>
                 <Input
                   type="text"
-                  name="name"
+                  name="movie"
                   placeholder="Movie"
-                  value={this.state.movies}
+                  value={this.state.name}
                   onChange={this.handleChange}
                 />
               </FormGroup>
