@@ -3,13 +3,13 @@ import "./App.css";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import { axiosWithAuth } from "./components/auth/axiosWithAuth";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import { axiosWithAuth } from "./auth/axiosWithAuth";
 import Home from "./components/Home";
 import AddMovies from "./components/AddMovies";
 import Edit from "./components/Edit";
-import Landing from "./components/LandingPage";
+import Land from "./components/LandingPage";
 // import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
@@ -53,15 +53,15 @@ class App extends React.Component {
 
   updateMovie = (e, id, updatedMovie) => {
     e.preventDefault();
-
     const endpoint = `https://top9-the2nd.herokuapp.com/api/movies/${id}`;
+    
     axios
-      .put(endpoint, updatedMovie, {
-        headers: { Authorization: localStorage.getItem("token") },
-      })
-      .then((res) => {
-        const movie = res.data.name;
-        this.setState({
+    .put(endpoint, updatedMovie, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then((res) => {
+      const movie = res.data.name;
+      this.setState({
           movies: movie,
         });
         // redirect to home page
@@ -97,37 +97,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Land} />
           <Route exact path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route
-            path="/home"
-            render={(props) => (
-              <Home
-                {...props}
-                mount={this.componentDidMount}
-                movies={this.state.movies}
-                delete={this.deleteMovie}
-              />
-            )}
-          />
-          <Route
-            path="/movie"
-            render={(props) => (
-              <AddMovies {...props} addMovie={this.addMovie} />
-            )}
-          />
-          <Route
-            path="/edit/:id"
-            render={(props) => (
-              <Edit
-                {...props}
-                handleChange={this.handleChange}
-                updateMovie={this.updateMovie}
-                value={this.state.name}
-              />
-            )}
-          />
+          <Route path="/home" render={(props) => (<Home {...props} mount={this.componentDidMount} movies={this.state.movies} delete={this.deleteMovie} /> )} />
+          <Route path="/movie"render={(props) => ( <AddMovies {...props} addMovie={this.addMovie} /> )} />
+          <Route path="/edit/:id" render={(props) => ( <Edit {...props} handleChange={this.handleChange} updateMovie={this.updateMovie} value={this.state.name} /> )} />
         </Router>
       </div>
     );

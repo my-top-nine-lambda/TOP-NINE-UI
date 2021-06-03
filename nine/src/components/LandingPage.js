@@ -1,37 +1,32 @@
 import React from "react";
+import './components.css';
+import { Button } from 'reactstrap';
 
-import { Form, Navbar } from "reactstrap";
-
-const Landing = (props) => {
+const Land = () => {
   return (
-    <div className="login">
-      <div className="bar">
-        <Navbar>
-          <h2>Top 3</h2>
-          <button className="signB" type="submit">
-            <a href="/login">Sign In</a>
-          </button>
-        </Navbar>
-      </div>
-      <div className="landCont">
-        <div className="landCard">
-          <p className="title">Top 3</p>
-          <div>
-            <p id="para">
-              When was the last time you had to pick your Top 3 movies? Don't
-              worry I'll wait...well here's your chance!
-            </p>
-          </div>
-          <Form className="form">
-            <p id="para">Click here to Sign Up</p>
-            <button className="signB">
-              <a href="/register">Register</a>
-            </button>
-          </Form>
-        </div>
+    <div className="land">
+      <header>
+         <nav className="landNav">
+           <>
+           <h1>Top 3</h1>  
+           </>
+           <p>
+            <Button className="landBtn"color="primary" href="/login">Sign In</Button> 
+          </p>
+        </nav> 
+      </header>
+      <div className='landCard'>
+        <h2>Top 3</h2>
+        <p>
+          When was the last time you had to pick your Top 3 movies? Don't
+          worry...here's your chance!
+        </p>     
+        <p> 
+          <Button color="primary" className="register-button" href="/register">Register Here</Button>  
+        </p> 
       </div>
     </div>
   );
 };
 
-export default Landing;
+export default Land;

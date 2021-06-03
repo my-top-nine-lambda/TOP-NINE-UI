@@ -1,54 +1,185 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 * {
   box-sizing: border-box;
 }
 
-.App {
-  text-align: center;
-}
-/*
-Landing Page
-*/
+/* General styling */
 
-.landCont {
-  background-image: url(images/celebmix.png);
-  height: 700px;
-  padding: 150px;
+html {
+  font-size: 62.5%;
 }
-
-.landCard {
-  background-color: black;
-  height: 230px;
+.bar {
+  background-color: yellow;
+  width: 100%;
+  z-index: 1;
 }
-
-#para {
+.bar nav {
+  display: flex;
+  justify-content: space-between;
+}
+.bar h1 {
+  color: dodgerblue;
+  margin: 1% 2%;
+  font-weight: bold;
+}
+.site-button {
+  background-color: dodgerblue;
+  border-radius: 7px;
   color: white;
-  font-weight: 900;
-  margin-top: 5px;
+  width: 12%;
+  text-decoration: none;
+}
+.site-button:hover {
+  background-color: black;
+  color: dodgerblue;
+  text-decoration: none;
 }
 
-/*
-Register
-*/
+/* Register */
 
 .register {
   background-image: url(images/register.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 700px;
   padding: 150px;
 }
-
-.signB {
-  background-color: dodgerblue;
-  border-radius: 8px;
-  color: white;
-  height: 35px;
-  width: 80px;
+.register-button:hover {
+  background-color: black;
+  color: dodgerblue;
   text-decoration: none;
-  margin-left: 5px;
 }
 
-/*
-Login Page
-*/
+/* Login Page */
 
 .form {
   width: 300px;
@@ -81,12 +212,6 @@ h2 {
   font-weight: 700;
 }
 
-.bar {
-  background-color: yellow;
-  width: 100%;
-  z-index: 1;
-}
-
 button a {
   color: white;
 }
@@ -95,9 +220,7 @@ button a {
   width: 100px;
 }
 
-/*
-Home Page
-*/
+/* Home Page */
 
 .h1 {
   color: yellow;
@@ -112,6 +235,7 @@ Home Page
   width: 100%;
   display: block;
 }
+
 .movies {
   display: flex;
   justify-content: space-evenly;
@@ -140,13 +264,13 @@ Home Page
   opacity: 0.9;
 }
 
-/*
-AddMovie Page
-*/
+/* AddMovie Page */
+
 .addMovie {
   background-color: dodgerblue;
   height: 700px;
 }
+
 .addCard {
   margin-top: 100px;
 }
@@ -168,10 +292,6 @@ AddMovie Page
 .editForm {
   width: 300px;
   margin: 100px auto;
-}
-
-#editButton {
-  margin-top: 20px;
 }
 
 #editInput {

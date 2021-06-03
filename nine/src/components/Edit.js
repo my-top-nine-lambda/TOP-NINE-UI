@@ -6,7 +6,7 @@ const Edit = (props) => {
     <div className="editPage">
       <Navbar className="bar">
         <h2>Top Nine</h2>
-        <button className="signB">
+        <button className="site-button">
           <a href="/home">Home</a>
         </button>
       </Navbar>
@@ -26,7 +26,7 @@ const Edit = (props) => {
               value={props.value}
               onChange={props.handleChange}
             />
-            <button id="editButton" className="signB" type="submit">
+            <button className="site-button" type="submit">
               Submit
             </button>
           </Col>

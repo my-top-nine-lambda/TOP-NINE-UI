@@ -42,7 +42,7 @@ class Movies extends React.Component {
                   onChange={this.handleChange}
                 />
               </FormGroup>
-              <button className="signB">Add</button>
+              <button className="site-button">Add</button>
             </Col>
           </Form>
         </div>
