@@ -5,16 +5,10 @@ import { Button, Navbar } from 'reactstrap';
 const Land = () => {
   return (
     <div className="land">
-      <header>
-         <Navbar className="landNav">
-           <>
-           <h1>Top 3</h1>  
-           </>
-           <p>
-            <Button className="landBtn"color="primary" href="/login">Sign In</Button> 
-          </p>
-        </Navbar> 
-      </header>
+      <Navbar className="landNav">
+        <h2>Top 3</h2>  
+        <Button className="landBtn"color="primary" href="/login">Sign In</Button> 
+      </Navbar> 
       <div className='landCard'>
         <h2>Top 3</h2>
         <p>

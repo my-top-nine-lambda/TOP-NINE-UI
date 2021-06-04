@@ -1,25 +1,17 @@
 import React from "react";
 
-import { Navbar, Nav } from "reactstrap";
+import { Navbar, Button } from "reactstrap";
 
 const Home = (props) => {
   return (
     <div className="home">
-      <div className="bar">
-        <Navbar>
-          <h2>Top 3</h2>
-          <Nav>
-            <button className="signB">
-              <a href="/movie">+Movie</a>
-            </button>
-            <button className="signB">
-              <a href="/login">Sign Out</a>
-            </button>
-          </Nav>
-        </Navbar>
-      </div>
+      <Navbar className="bar">
+        <h2>Top 3</h2>
+        <Button color="primary" href="/login">Sign Out</Button>
+      </Navbar>
 
-      <p className="h1">Genre</p>
+      <Button color="primary" href="/movie">Add Movie</Button>
+      <h1>Genre</h1>
       <div className="movies">
         <div className="movieList">
           <p id="para">Sport</p>
@@ -27,13 +19,8 @@ const Home = (props) => {
             return (
               <div key={movie.id} className="movie-card">
                 <h3 key={movie.id}>{movie.name}</h3>
-
-                <button className="edit">
-                  <a href={`/edit/${movie.id}`}>Edit</a>
-                </button>
-                <button className="delete" onClick={(id) => props.delete(id)}>
-                  X
-                </button>
+                <Button color="primary" className="edit" href={`/edit/${movie.id}`}>Edit</Button>
+                <Button color="danger" className="delete" onClick={(id) => props.delete(id)}>X</Button>
               </div>
             );
           })}

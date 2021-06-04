@@ -50,15 +50,15 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="login">
+      <div>
           <Navbar className="bar">
-            <h1>Top 3</h1>
+            <h2>Top 3</h2>
             <Button color="primary" href="/login">Sign In</Button>
           </Navbar>
        
       
         <div className="register">
-          <h2>Register Here</h2>
+          <h1>Register Here</h1>
           <Form className="form" onSubmit={this.register}>
             <Col>
               <FormGroup>

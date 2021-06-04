@@ -163,13 +163,15 @@ table {
   text-align: center;
   background-color: yellow;
   color: black;
-  height: 25%;
+  height: 30%;
   width: 35%;
   border-radius: 8px;
   padding: 2%;
   margin: 10% auto;
 }
 .landCard h2 {
+  color: blue;
+  margin-top: 3%;
   font-weight: bolder;
 }
 .landCard p {

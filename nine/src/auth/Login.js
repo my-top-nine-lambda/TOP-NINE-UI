@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Col, Form, FormGroup, Input, Navbar } from "reactstrap";
+import { Col, Form, FormGroup, Input, Navbar, Button } from "reactstrap";
+import '../App.css';
 
 class Login extends React.Component {
   state = {
@@ -35,15 +36,13 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <div className="bar">
-          <Navbar>
+      <div>
+          <Navbar className="bar">
             <h2>Top 3</h2>
           </Navbar>
-        </div>
-        <div className="loginCont">
-          <div className="loginCard">
-            <h2 className="title">Top 3</h2>
+       
+          <div className="loginCont">
+            <div className="loginCard">
             <Form className="form" onSubmit={this.login}>
               <Col>
                 <FormGroup>
@@ -68,15 +67,14 @@ class Login extends React.Component {
                 </FormGroup>
               </Col>
 
-              <button className="site-button" type="submit">
+              <Button color="primary" type="submit">
                 Login
-              </button>
-              <p class="para">Create an account</p>
-
+              </Button>
+              <p class="create">Create an account</p>
               <a href="/register">Register</a>
             </Form>
+            </div>
           </div>
-        </div>
       </div>
     );
   }

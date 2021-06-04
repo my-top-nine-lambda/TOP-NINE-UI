@@ -142,7 +142,7 @@ html {
   justify-content: space-between;
   background-color: yellow;
 }
-.bar h1 {
+.bar h2 {
   margin: 1% 1%;
   color: blue;
   font-weight: bolder;
@@ -158,59 +158,44 @@ html {
   height: 700px;
   padding: 150px;
 }
-.register h2 {
+.register h1 {
+  color: blue;
   text-shadow: 0.1rem 0.1rem white;
 }
 
 /* Login Page */
 
+.loginCont {
+  background-image: url(images/bmovie.jpeg);
+  text-align: center;
+  height: 700px;
+  padding: 150px;
+}
 .form {
   width: 300px;
   margin: 0 auto;
 }
-
 .loginCard {
   background-color: black;
-  width: 330px;
+  border-radius: 8px;
+  padding: 3%;
+  width: 35%;
   height: 300px;
   margin: 0 auto;
 }
-.loginCont {
-  background-image: url(images/bmovie.jpeg);
-  height: 700px;
-  padding: 150px;
-}
-
-h2 {
-  color: blue;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  margin: 30px;
-}
-
-.title {
+.create {
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 45px;
-  font-weight: 700;
-}
-
-button a {
-  color: white;
-}
-
-.imput {
-  width: 100px;
+  margin-top: 5%;
 }
 
 /* Home Page */
 
-.h1 {
+.h2 {
   color: yellow;
   margin: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 45px;
-  font-weight: 700;
+  font-weight: bolder;
 }
 
 .home {
