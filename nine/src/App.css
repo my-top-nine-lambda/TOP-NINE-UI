@@ -138,30 +138,14 @@ html {
   font-size: 62.5%;
 }
 .bar {
-  background-color: yellow;
-  width: 100%;
-  z-index: 1;
-}
-.bar nav {
   display: flex;
   justify-content: space-between;
+  background-color: yellow;
 }
 .bar h1 {
-  color: dodgerblue;
-  margin: 1% 2%;
-  font-weight: bold;
-}
-.site-button {
-  background-color: dodgerblue;
-  border-radius: 7px;
-  color: white;
-  width: 12%;
-  text-decoration: none;
-}
-.site-button:hover {
-  background-color: black;
-  color: dodgerblue;
-  text-decoration: none;
+  margin: 1% 1%;
+  color: blue;
+  font-weight: bolder;
 }
 
 /* Register */
@@ -170,13 +154,12 @@ html {
   background-image: url(images/register.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  text-align: center;
   height: 700px;
   padding: 150px;
 }
-.register-button:hover {
-  background-color: black;
-  color: dodgerblue;
-  text-decoration: none;
+.register h2 {
+  text-shadow: 0.1rem 0.1rem white;
 }
 
 /* Login Page */

@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Form, FormGroup, Input, } from "reactstrap";
+import { Col, Form, FormGroup, Input, Navbar, Button } from "reactstrap";
 import axios from "axios";
 
 class Signup extends React.Component {
@@ -51,14 +51,11 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="login">
-        <div className="bar">
-          <nav>
+          <Navbar className="bar">
             <h1>Top 3</h1>
-            <button className="site-button">
-              <a href="/login">Sign In</a>
-            </button>
-          </nav>
-        </div>
+            <Button color="primary" href="/login">Sign In</Button>
+          </Navbar>
+       
       
         <div className="register">
           <h2>Register Here</h2>
@@ -99,7 +96,7 @@ class Signup extends React.Component {
               </FormGroup>
             </Col>
 
-            <button className="site-button">Submit</button>
+            <Button color="primary">Submit</Button>
           </Form>
         </div>
       </div>

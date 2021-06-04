@@ -135,7 +135,7 @@ table {
 /* Landing Page */
 
 .land {
-  height: 1000px;
+  height: 700px;
   background: url(../images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg);
   background-size: cover;
 }
@@ -143,7 +143,6 @@ table {
   display: flex;
   justify-content: space-between;
   background-color: yellow;
-  width: 100%;
 }
 .landNav h1 {
   margin: 1% 1%;

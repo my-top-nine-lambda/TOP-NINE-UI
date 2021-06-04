@@ -1,19 +1,19 @@
 import React from "react";
 import './components.css';
-import { Button } from 'reactstrap';
+import { Button, Navbar } from 'reactstrap';
 
 const Land = () => {
   return (
     <div className="land">
       <header>
-         <nav className="landNav">
+         <Navbar className="landNav">
            <>
            <h1>Top 3</h1>  
            </>
            <p>
             <Button className="landBtn"color="primary" href="/login">Sign In</Button> 
           </p>
-        </nav> 
+        </Navbar> 
       </header>
       <div className='landCard'>
         <h2>Top 3</h2>
